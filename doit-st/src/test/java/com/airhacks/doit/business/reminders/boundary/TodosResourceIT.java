@@ -47,17 +47,6 @@ public class TodosResourceIT {
         JsonObject todo = allTodos.getJsonObject(0);
         assertTrue(todo.getString("caption").startsWith("impl"));
 
-        //GET with id
-        JsonObject dedicatedTodo = this.provider.target().
-                path("42").
-                request(MediaType.APPLICATION_JSON).
-                get(JsonObject.class);
-        assertTrue(dedicatedTodo.getString("caption").contains("42"));
-
-        Response deleteResponse = this.provider.target().
-                path("42").
-                request(MediaType.APPLICATION_JSON).delete();
-        assertThat(deleteResponse.getStatus(), is(204));
 
     }
 
