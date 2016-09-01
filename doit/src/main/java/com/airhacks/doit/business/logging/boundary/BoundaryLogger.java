@@ -15,7 +15,9 @@ public class BoundaryLogger {
     @Inject
     Event<CallEvent> monitoring;
 
-    @AroundInvoke
+    //means then some annotation @Interceptors will call this method 
+    //when execute some methods is basically a hook or ascpect on Spring 
+    @AroundInvoke 
     public Object logCall(InvocationContext ic) throws Exception {
         long start = System.currentTimeMillis();
         try {
